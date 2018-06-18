@@ -1,5 +1,5 @@
 //import React
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 
@@ -13,12 +13,15 @@ YTSearch({key: API_KEY, term: 'surfboards'}, function(data){
 
 //A. Create Component that produces HTML
 
-const App = () => {
-    return ( <div>
-        <SearchBar />
-    </div>
-    );
-}
+class App extends Component {
+    render() { 
+        return ( 
+            <div>
+                <SearchBar />
+            </div>
+        );
+    }
+};
 
 
 //A2. Take Component HTML and Render to DOM
