@@ -7,13 +7,21 @@ import SearchBar from './components/search_bar';
 
 const API_KEY = 'AIzaSyCrVDceP1-KwRsIVi12ODPCwS2oSHe-_7k';
 
-YTSearch({key: API_KEY, term: 'surfboards'}, function(data){
-    console.log(data);
-});
-
 //A. Create Component that produces HTML
 
 class App extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {videos: []};
+
+        YTSearch({
+            key: API_KEY,
+            term: 'surfboards'
+        }, (videos) => {
+            this.setState({videos})
+        });
+    }
     render() { 
         return ( 
             <div>
